@@ -232,7 +232,7 @@
                                     </td>
 
 
-                                    <td><?php echo $user->UserImage;?></td>
+                                    <td><img class="usersimage" src="<?php echo base_url('upload/users'); ?>/<?php echo $user->UserImage;?>"></td>
                                     <td><?php echo $user->UserName;?></td>
                                     <td><?php echo $user->UserSurname;?></td>
                                     <td><?php echo $user->Email;?></td>

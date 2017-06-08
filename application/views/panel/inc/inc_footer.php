@@ -1,8 +1,8 @@
 <!-- BEGIN FOOTER -->
 <div class="page-footer">
-    <div class="page-footer-inner"> 2016 &copy; Metronic Theme By
-        <a target="_blank" href="http://keenthemes.com">Hedefim12.Com</a> &nbsp;|&nbsp;
-        <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
+    <div class="page-footer-inner"> <?php echo date('Y');?> &copy; Eğitim Adası by
+        <a target="_blank" href="http://hedefim12.com">Hedefim12.Com</a> &nbsp;|&nbsp;
+        <a href="http://hedefim12.com" title="Hedefim12.Com'a hemen üye olmak için tıklayınız" target="_blank">Hedefim12.Com</a>
     </div>
     <div class="scroll-to-top">
         <i class="icon-arrow-up"></i>
