@@ -25,9 +25,19 @@ class Users extends CI_Controller
          $viewData = array('rows' => $rows);
 
 
+        $this->load->view('panel/index', $viewData);
 
-         $this->load->view('panel/index', $viewData);
     }
+        // verileri bir şarta göre sıralatıyoruz..
+        public function where(){
+          $rows = $this
+              ->db
+              ->where('RecorderId <', 4)
+              ->get('users')
+              ->result();
+
+            print_r($rows);
+        }
 
 
 
