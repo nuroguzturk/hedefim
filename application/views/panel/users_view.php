@@ -187,8 +187,8 @@
                         <table class="table table-striped table-bordered table-hover" id="sample_3">
                             <thead id="sample_4">
                             <tr>
-                                <th></th>
                                 <th>id</th>
+                                <th>Durum</th>
                                 <th class="hidden-phone">TC</th>
                                 <th class="hidden-phone">Resim</th>
                                 <th class="hidden-phone">İsim</th>
@@ -206,8 +206,8 @@
                             </thead>
                             <tfoot>
                             <tr>
-                                <th></th>
                                 <th>id</th>
+                                <th>Durum</th>
                                 <th class="hidden-phone">TC</th>
                                 <th class="hidden-phone">Resim</th>
                                 <th class="hidden-phone">İsim</th>
@@ -227,13 +227,13 @@
 
                             <?php foreach($rows as $user){?>
                                 <tr>
+                                    <td><?php echo $user->UserId;?></td>
                                     <td>
                                         <div>
-                                            <input type="checkbox" class="make-switch" data-on-text="&nbsp;Açık&nbsp;" data-off-text="X" data-size="small" data-on-color="success" data-off-color="default" checked >
-
+                                            <input type="checkbox" checked class="make-switch switch-small" data-label-icon="fa fa-fullscreen" data-on-text="<i class='fa fa-check'></i>" data-off-text="<i class='fa fa-times'></i>" data-on-color="success" data-off-color="default">
                                         </div>
                                     </td>
-                                    <td><?php echo $user->UserId;?></td>
+
                                     <td><?php echo $user->UserTC;?></td>
                                     <td><?php echo $user->UserImage;?></td>
                                     <td><?php echo $user->UserName;?></td>
