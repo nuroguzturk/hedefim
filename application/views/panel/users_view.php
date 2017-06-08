@@ -179,7 +179,6 @@
                                 </ul>
                             </div>
 
-
                         </div></div>
                     </div>
 
@@ -187,9 +186,9 @@
                         <table class="table table-striped table-bordered table-hover" id="sample_3">
                             <thead id="sample_4">
                             <tr>
-                                <th>id</th>
+
                                 <th>Durum</th>
-                                <th class="hidden-phone">TC</th>
+
                                 <th class="hidden-phone">Resim</th>
                                 <th class="hidden-phone">İsim</th>
                                 <th class="hidden-phone">Soyisim</th>
@@ -197,18 +196,17 @@
                                 <th class="hidden-phone">Telefon</th>
                                 <th class="hidden-phone">Cinsiyet</th>
                                 <th class="hidden-phone">İl</th>
-                                <th class="hidden-phone">Doğum Tarihi</th>
-                                <th class="hidden-phone">Task</th>
+
                                 <th class="hidden-phone">Kayıt Kimliği</th>
-                                <th class="hidden-phone">Kayıt Tarihi</th>
+
                                 <th class="hidden-phone">İşlem</th>
                             </tr>
                             </thead>
                             <tfoot>
                             <tr>
-                                <th>id</th>
+
                                 <th>Durum</th>
-                                <th class="hidden-phone">TC</th>
+
                                 <th class="hidden-phone">Resim</th>
                                 <th class="hidden-phone">İsim</th>
                                 <th class="hidden-phone">Soyisim</th>
@@ -216,10 +214,9 @@
                                 <th class="hidden-phone">Telefon</th>
                                 <th class="hidden-phone">Cinsiyet</th>
                                 <th class="hidden-phone">İl</th>
-                                <th class="hidden-phone">Doğum Tarihi</th>
-                                <th class="hidden-phone">Task</th>
+
                                 <th class="hidden-phone">Kayıt Kimliği</th>
-                                <th class="hidden-phone">Kayıt Tarihi</th>
+
                                 <th class="hidden-phone">İşlem</th>
                             </tr>
                             </tfoot>
@@ -227,14 +224,14 @@
 
                             <?php foreach($rows as $user){?>
                                 <tr>
-                                    <td><?php echo $user->UserId;?></td>
+
                                     <td>
                                         <div>
                                             <input type="checkbox" checked class="make-switch switch-small" data-label-icon="fa fa-fullscreen" data-on-text="<i class='fa fa-check'></i>" data-off-text="<i class='fa fa-times'></i>" data-on-color="success" data-off-color="default">
                                         </div>
                                     </td>
 
-                                    <td><?php echo $user->UserTC;?></td>
+
                                     <td><?php echo $user->UserImage;?></td>
                                     <td><?php echo $user->UserName;?></td>
                                     <td><?php echo $user->UserSurname;?></td>
@@ -242,30 +239,77 @@
                                     <td><?php echo $user->Telephone;?></td>
                                     <td><?php echo $user->Gender;?></td>
                                     <td><?php echo $user->CityId;?></td>
-                                    <td><?php echo $user->DateofBirth;?></td>
-                                    <td><?php echo $user->TaskId;?></td>
+
                                     <td><?php echo $user->RecorderId;?></td>
-                                    <td><?php echo $user->DateofRecord;?></td>
 
 
                                     <td>
-                                        <button class="btn btn-info" onclick="user_show(<?php echo $user->UserId;?>)"><span class="glyphicon glyphicon-search"></span></button>
+                                        <a class="btn btn-info" data-toggle="modal" href="#responsive"><span class="glyphicon glyphicon-search"></span></a>
                                         <button class="btn btn-warning" onclick="edit_user(<?php echo $user->UserId;?>)"><i class="glyphicon glyphicon-pencil"></i></button>
                                         <button class="btn btn-danger" onclick="delete_user(<?php echo $user->UserId;?>)"><i class="glyphicon glyphicon-remove"></i></button>
                                     </td>
+                                    <!-- responsive -->
+                                    <div id="responsive" class="modal fade" tabindex="-1" data-width="900">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                            <h4 class="modal-title"><?php echo $user->UserName;?> <?php echo $user->UserSurname;?> - <?php echo $user->RecorderId;?></h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+
+                                                    <p>
+                                                    <label>TC</label><input class="form-control" type="text" value="<?php echo $user->UserTC;?> "></p>
+                                                    <p>
+                                                    <label>Doğum Tarihi</label><input class="form-control" type="text" value="<?php echo $user->DateofBirth;?> "></p>
+                                                    <p>
+                                                    <label>Yetki</label><input class="form-control" type="text" value="<?php echo $user->TaskId;?> "></p>
+                                                    <p>
+                                                    <label>Kayıt Tarihi</label><input class="form-control" type="text" value="<?php echo $user->DateofRecord;?> "></p>
+                                                    <p>
+                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                    <p>
+                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                    <p>
+                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <p>
+                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                    <p>
+                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                    <p>
+                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                    <p>
+                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                    <p>
+                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                    <p>
+                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                    <p>
+                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" data-dismiss="modal" class="btn btn-danger">Kapat</button>
+
+                                        </div>
+                                    </div>
                                 </tr>
                             <?php }?>
-
                             </tbody>
                         </table>
-                    </div>
+                        </div>
                 </div>
                 <!-- END EXAMPLE TABLE PORTLET-->
             </div>
         </div>
     </div>
     <!-- END CONTENT BODY -->
-</div>
 <!-- END CONTENT -->
+
+
 
 
