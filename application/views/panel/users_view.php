@@ -189,7 +189,7 @@
 
                                 <th>Durum</th>
 
-                                <th class="hidden-phone">Resim</th>
+                                <th style="width:50px;text-align: center;" class="hidden-phone">Resim</th>
                                 <th class="hidden-phone">İsim</th>
                                 <th class="hidden-phone">Soyisim</th>
                                 <th class="hidden-phone">Email</th>
@@ -197,9 +197,9 @@
                                 <th class="hidden-phone">Cinsiyet</th>
                                 <th class="hidden-phone">İl</th>
 
-                                <th class="hidden-phone">Kayıt Kimliği</th>
+                                <th style="width:20px;" class="hidden-phone">Kayıt Kimliği</th>
 
-                                <th class="hidden-phone">İşlem</th>
+                                <th style="width:120px;text-align: center;" class="hidden-phone">İşlem</th>
                             </tr>
                             </thead>
                             <tfoot>
@@ -207,7 +207,7 @@
 
                                 <th>Durum</th>
 
-                                <th class="hidden-phone">Resim</th>
+                                <th style="width:50px;text-align: center;"class="hidden-phone">Resim</th>
                                 <th class="hidden-phone">İsim</th>
                                 <th class="hidden-phone">Soyisim</th>
                                 <th class="hidden-phone">Email</th>
@@ -217,7 +217,7 @@
 
                                 <th class="hidden-phone">Kayıt Kimliği</th>
 
-                                <th class="hidden-phone">İşlem</th>
+                                <th style="width:120px;text-align: center;" class="hidden-phone">İşlem</th>
                             </tr>
                             </tfoot>
                             <tbody>
@@ -232,20 +232,20 @@
                                     </td>
 
 
-                                    <td><img class="usersimage" src="<?php echo base_url('upload/users'); ?>/<?php echo $user->UserImage;?>"></td>
-                                    <td><?php echo $user->UserName;?></td>
+                                    <td style="width:120px;text-align: center;"><img class="usersimage" src="<?php echo base_url('upload/users'); ?>/<?php echo $user->UserImage;?>"></td>
+                                    <td style=""><?php echo $user->UserName;?></td>
                                     <td><?php echo $user->UserSurname;?></td>
                                     <td><?php echo $user->Email;?></td>
                                     <td><?php echo $user->Telephone;?></td>
                                     <td><?php echo $user->Gender;?></td>
                                     <td><?php echo $user->CityId;?></td>
-
                                     <td><?php echo $user->RecorderId;?></td>
 
 
-                                    <td>
+                                    <td style="width:120px;text-align: center;">
+
                                         <a class="btn btn-info" data-toggle="modal" href="#responsive"><span class="glyphicon glyphicon-search"></span></a>
-                                        <button class="btn btn-warning" onclick="edit_user(<?php echo $user->UserId;?>)"><i class="glyphicon glyphicon-pencil"></i></button>
+                                        <a class="btn btn-warning" data-toggle="modal" href="#responsive"><i class="glyphicon glyphicon-pencil"></i></a>
                                         <button class="btn btn-danger" onclick="delete_user(<?php echo $user->UserId;?>)"><i class="glyphicon glyphicon-remove"></i></button>
                                     </td>
                                     <!-- responsive -->

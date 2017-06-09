@@ -43,9 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- END FOOTER -->
 
 </div>
-<!-- BEGIN QUICK NAV -->
-    <?php $this->load->view('panel/inc/inc_quicknav'); ?>
-<!-- END QUICK NAV -->
+
 
     <?php $this->load->view('panel/inc/inc_script'); ?>
 
