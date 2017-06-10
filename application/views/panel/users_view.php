@@ -222,7 +222,7 @@
                             </tfoot>
                             <tbody>
 
-                            <?php foreach($rows as $user){?>
+                            <?php foreach($rows as $row){?>
                                 <tr>
 
                                     <td>
@@ -232,41 +232,41 @@
                                     </td>
 
 
-                                    <td style="width:120px;text-align: center;"><img class="usersimage" src="<?php echo base_url('upload/users'); ?>/<?php echo $user->UserImage;?>"></td>
-                                    <td style=""><?php echo $user->UserName;?></td>
-                                    <td><?php echo $user->UserSurname;?></td>
-                                    <td><?php echo $user->Email;?></td>
-                                    <td><?php echo $user->Telephone;?></td>
-                                    <td><?php echo $user->Gender;?></td>
-                                    <td><?php echo $user->CityId;?></td>
-                                    <td><?php echo $user->RecorderId;?></td>
+                                    <td style="width:120px;text-align: center;"><img class="usersimage" src="<?php echo base_url('upload/users'); ?>/<?php echo $row->UserImage;?>"></td>
+                                    <td style=""><?php echo $row->UserName;?></td>
+                                    <td><?php echo $row->UserSurname;?></td>
+                                    <td><?php echo $row->Email;?></td>
+                                    <td><?php echo $row->Telephone;?></td>
+                                    <td><?php echo $row->Gender;?></td>
+                                    <td><?php echo $row->CityId;?></td>
+                                    <td><?php echo $row->RecorderId;?></td>
 
 
                                     <td style="width:120px;text-align: center;">
 
                                         <a class="btn btn-info" data-toggle="modal" href="#responsive"><i class="glyphicon glyphicon-search"></i></a>
                                         <a class="btn btn-warning" data-toggle="modal" href="#responsive"><i class="glyphicon glyphicon-pencil"></i></a>
-                                        <a class="btn btn-danger mt-sweetalert" data-title="Do you agree to the Terms and Conditions?" data-type="warning" data-allow-outside-click="true" data-show-confirm-button="true" data-show-cancel-button="true"
-                                                data-cancel-button-class="btn-danger" data-cancel-button-text='No, I do not agree' data-confirm-button-text='Yes, I agree' data-confirm-button-class="btn-info" href="Users/delete"><i class="glyphicon glyphicon-remove"></i></a>
+                                        <a class="btn btn-danger" data-toggle="modal" href="<?php echo base_url("users/delete/$row->id"); ?>"><i class="glyphicon glyphicon-remove"></i></a>
+
                                     </td>
                                     <!-- responsive modal-->
                                     <div id="responsive" class="modal fade" tabindex="-1" data-width="900">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                            <h4 class="modal-title"><?php echo $user->UserName;?> <?php echo $user->UserSurname;?> - <?php echo $user->RecorderId;?></h4>
+                                            <h4 class="modal-title"><?php echo $row->UserName;?> <?php echo $row->UserSurname;?> - <?php echo $row->RecorderId;?></h4>
                                         </div>
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-md-6">
 
                                                     <p>
-                                                        <label>TC</label><input class="form-control" type="text" value="<?php echo $user->UserTC;?> "></p>
+                                                        <label>TC</label><input class="form-control" type="text" value="<?php echo $row->UserTC;?> "></p>
                                                     <p>
-                                                        <label>Doğum Tarihi</label><input class="form-control" type="text" value="<?php echo $user->DateofBirth;?> "></p>
+                                                        <label>Doğum Tarihi</label><input class="form-control" type="text" value="<?php echo $row->DateofBirth;?> "></p>
                                                     <p>
-                                                        <label>Yetki</label><input class="form-control" type="text" value="<?php echo $user->TaskId;?> "></p>
+                                                        <label>Yetki</label><input class="form-control" type="text" value="<?php echo $row->TaskId;?> "></p>
                                                     <p>
-                                                        <label>Kayıt Tarihi</label><input class="form-control" type="text" value="<?php echo $user->DateofRecord;?> "></p>
+                                                        <label>Kayıt Tarihi</label><input class="form-control" type="text" value="<?php echo $row->DateofRecord;?> "></p>
                                                     <p>
                                                         <label>Some Input</label><input class="form-control" type="text"> </p>
                                                     <p>
