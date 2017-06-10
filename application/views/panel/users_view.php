@@ -244,11 +244,12 @@
 
                                     <td style="width:120px;text-align: center;">
 
-                                        <a class="btn btn-info" data-toggle="modal" href="#responsive"><span class="glyphicon glyphicon-search"></span></a>
+                                        <a class="btn btn-info" data-toggle="modal" href="#responsive"><i class="glyphicon glyphicon-search"></i></a>
                                         <a class="btn btn-warning" data-toggle="modal" href="#responsive"><i class="glyphicon glyphicon-pencil"></i></a>
-                                        <button class="btn btn-danger" onclick="delete_user(<?php echo $user->UserId;?>)"><i class="glyphicon glyphicon-remove"></i></button>
+                                        <a class="btn btn-danger mt-sweetalert" data-title="Do you agree to the Terms and Conditions?" data-type="warning" data-allow-outside-click="true" data-show-confirm-button="true" data-show-cancel-button="true"
+                                                data-cancel-button-class="btn-danger" data-cancel-button-text='No, I do not agree' data-confirm-button-text='Yes, I agree' data-confirm-button-class="btn-info" href="Users/delete"><i class="glyphicon glyphicon-remove"></i></a>
                                     </td>
-                                    <!-- responsive -->
+                                    <!-- responsive modal-->
                                     <div id="responsive" class="modal fade" tabindex="-1" data-width="900">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
@@ -259,36 +260,36 @@
                                                 <div class="col-md-6">
 
                                                     <p>
-                                                    <label>TC</label><input class="form-control" type="text" value="<?php echo $user->UserTC;?> "></p>
+                                                        <label>TC</label><input class="form-control" type="text" value="<?php echo $user->UserTC;?> "></p>
                                                     <p>
-                                                    <label>Doğum Tarihi</label><input class="form-control" type="text" value="<?php echo $user->DateofBirth;?> "></p>
+                                                        <label>Doğum Tarihi</label><input class="form-control" type="text" value="<?php echo $user->DateofBirth;?> "></p>
                                                     <p>
-                                                    <label>Yetki</label><input class="form-control" type="text" value="<?php echo $user->TaskId;?> "></p>
+                                                        <label>Yetki</label><input class="form-control" type="text" value="<?php echo $user->TaskId;?> "></p>
                                                     <p>
-                                                    <label>Kayıt Tarihi</label><input class="form-control" type="text" value="<?php echo $user->DateofRecord;?> "></p>
+                                                        <label>Kayıt Tarihi</label><input class="form-control" type="text" value="<?php echo $user->DateofRecord;?> "></p>
                                                     <p>
-                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
                                                     <p>
-                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
                                                     <p>
-                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
                                                 </div>
                                                 <div class="col-md-6">
 
                                                     <p>
-                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
                                                     <p>
-                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
                                                     <p>
-                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
                                                     <p>
-                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
                                                     <p>
-                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
                                                     <p>
-                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
                                                     <p>
-                                                    <label>Some Input</label><input class="form-control" type="text"> </p>
+                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -301,6 +302,7 @@
                             <?php }?>
                             </tbody>
                         </table>
+
                         </div>
                 </div>
                 <!-- END EXAMPLE TABLE PORTLET-->
@@ -309,6 +311,8 @@
     </div>
     <!-- END CONTENT BODY -->
 <!-- END CONTENT -->
+
+
 
 
 

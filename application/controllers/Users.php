@@ -36,9 +36,28 @@ class Users extends CI_Controller
               ->get('users')
               ->result();
 
-            print_r($rows);
+
+        }
+
+        // modeli çağırıyoruz...
+
+    public function delete(){
+          $this->load->model('users_model');
+          if(isset($_REQUEST['deleteid']) && $_REQUEST['deleteid']!='' && $_REQUEST['deleteid']!=0)
+            {
+
+                $this->user_model->userDelete();
+                redirect(base_url().'panel/users_view');
+
+            }
         }
 
 
 
-}
+
+    }
+
+
+
+
+

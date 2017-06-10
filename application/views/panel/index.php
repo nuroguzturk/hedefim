@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <!-- END HEAD -->
 
-<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+<body class="page-header-fixed page-footer-fixed page-sidebar-fixed page-sidebar-closed-hide-logo page-content-white">
 <div class="page-wrapper">
 
     <!-- BEGIN HEADER -->

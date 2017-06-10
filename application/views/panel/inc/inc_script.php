@@ -52,9 +52,9 @@
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="<?php echo base_url("assets"); ?>/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url("assets"); ?>/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url("assets"); ?>/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url("assets"); ?>/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url("assets"); ?>/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
 
 
 
@@ -71,14 +71,10 @@
 
 
 <script src="<?php echo base_url("assets"); ?>/pages/scripts/ui-extended-modals.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url("assets"); ?>/pages/scripts/ui-sweetalert.min.js" type="text/javascript"></script>
 
 
 
 
-
-<!-- TABLO PLUGINS -->
-<!-- <script src="<?php echo base_url("assets"); ?>/pages/scripts/table-datatables-fixedheader.min.js" type="text/javascript"></script> -->
-<!--<script src="<?php echo base_url("assets"); ?>/pages/scripts/table-datatables-editable.min.js" type="text/javascript"></script> -->
-<!-- END TABLO PLUGINS -->
 
 <!-- END JAVASCRIPTS -->

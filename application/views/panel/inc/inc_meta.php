@@ -1,5 +1,5 @@
 <meta charset="utf-8"/>
-<title>Metronic | Admin Dashboard Template</title>
+<title>Hedefim12.Com | Eğitime giden en kısa yol...</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="" name="description"/>
