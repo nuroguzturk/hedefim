@@ -138,10 +138,8 @@
                             <i class="fa fa-users"></i> Üyeler </div>
 
                         <div class="actions">
+                            <button style="font-size:14px;" class="btn btn-success" data-toggle="modal" href="#insert"><i class="glyphicon glyphicon-plus-sign"></i> Yeni Ekle</button>
 
-                            <button class="btn purple"> Yeni Ekle
-                                <i class="fa fa-plus"></i>
-                            </button>
 
                             <div class="btn-group">
                                 <a class="btn btn-default btn-sm btn-circle" href="javascript:;" data-toggle="dropdown">
@@ -181,12 +179,10 @@
 
                         </div></div>
                     </div>
-
                     <div class="portlet-body">
                         <table class="table table-striped table-bordered table-hover" id="sample_3">
                             <thead id="sample_4">
                             <tr>
-
                                 <th>Durum</th>
 
                                 <th style="width:50px;text-align: center;" class="hidden-phone">Resim</th>
@@ -197,7 +193,7 @@
                                 <th class="hidden-phone">Cinsiyet</th>
                                 <th class="hidden-phone">İl</th>
 
-                                <th style="width:20px;" class="hidden-phone">Kayıt Kimliği</th>
+                                <th style="width:20px;" class="hidden-phone">Yetki</th>
 
                                 <th style="width:120px;text-align: center;" class="hidden-phone">İşlem</th>
                             </tr>
@@ -215,7 +211,7 @@
                                 <th class="hidden-phone">Cinsiyet</th>
                                 <th class="hidden-phone">İl</th>
 
-                                <th class="hidden-phone">Kayıt Kimliği</th>
+                                <th class="hidden-phone">Yetki</th>
 
                                 <th style="width:120px;text-align: center;" class="hidden-phone">İşlem</th>
                             </tr>
@@ -244,73 +240,390 @@
 
                                     <td style="width:120px;text-align: center;">
 
-                                        <a class="btn btn-info" data-toggle="modal" href="#responsive"><i class="glyphicon glyphicon-search"></i></a>
-                                        <a class="btn btn-warning" data-toggle="modal" href="#responsive"><i class="glyphicon glyphicon-pencil"></i></a>
-                                        <a class="btn btn-danger" data-toggle="modal" href="<?php echo base_url("users/delete/$row->id"); ?>"><i class="glyphicon glyphicon-remove"></i></a>
+                                        <a class="btn btn-info" data-toggle="modal" href="#view"><i class="glyphicon glyphicon-search"></i></a>
+                                        <a class="btn btn-warning" data-toggle="modal" href="#update"><i class="glyphicon glyphicon-pencil"></i></a>
+                                        <a class="btn btn-danger" data-toggle="modal" href="#delete"><i class="glyphicon glyphicon-remove"></i></a>
 
-                                    </td>
-                                    <!-- responsive modal-->
-                                    <div id="responsive" class="modal fade" tabindex="-1" data-width="900">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                            <h4 class="modal-title"><?php echo $row->UserName;?> <?php echo $row->UserSurname;?> - <?php echo $row->RecorderId;?></h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col-md-6">
 
-                                                    <p>
-                                                        <label>TC</label><input class="form-control" type="text" value="<?php echo $row->UserTC;?> "></p>
-                                                    <p>
-                                                        <label>Doğum Tarihi</label><input class="form-control" type="text" value="<?php echo $row->DateofBirth;?> "></p>
-                                                    <p>
-                                                        <label>Yetki</label><input class="form-control" type="text" value="<?php echo $row->TaskId;?> "></p>
-                                                    <p>
-                                                        <label>Kayıt Tarihi</label><input class="form-control" type="text" value="<?php echo $row->DateofRecord;?> "></p>
-                                                    <p>
-                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
-                                                    <p>
-                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
-                                                    <p>
-                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
-                                                </div>
-                                                <div class="col-md-6">
+                                       </td>
 
-                                                    <p>
-                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
-                                                    <p>
-                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
-                                                    <p>
-                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
-                                                    <p>
-                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
-                                                    <p>
-                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
-                                                    <p>
-                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
-                                                    <p>
-                                                        <label>Some Input</label><input class="form-control" type="text"> </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" data-dismiss="modal" class="btn btn-danger">Kapat</button>
-
-                                        </div>
-                                    </div>
                                 </tr>
+
                             <?php }?>
                             </tbody>
                         </table>
+                        <!-- view -->
+                        <div class="modal fade draggable-modal" id="view" tabindex="-1" role="draggble" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                        <h4 class="modal-title"><?php echo $row->UserName;?> <?php echo $row->UserSurname;?></h4>
+                                    </div>
+                                    <div class="modal-body form">
+                                        <form action="#" id="form" class="form-horizontal">
+                                            <input type="hidden" value="" name="UserId"/>
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">TC No</label>
+                                                    <div class="col-md-9">
+                                                        <input disabled value="<?php echo $row->UserTC;?>" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">İsim</label>
+                                                    <div class="col-md-9">
+                                                        <input disabled value="<?php echo $row->UserName;?>" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Soyisim</label>
+                                                    <div class="col-md-9">
+                                                        <input disabled value="<?php echo $row->UserSurname;?>" class="form-control">
 
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Email</label>
+                                                    <div class="col-md-9">
+                                                        <input disabled value="<?php echo $row->Email;?>" class="form-control">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Telefon</label>
+                                                    <div class="col-md-9">
+                                                        <input disabled value="<?php echo $row->Telephone;?>" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Cinsiyet</label>
+                                                    <div class="col-md-9">
+                                                        <input disabled value="<?php echo $row->Gender;?>" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">İl</label>
+                                                    <div class="col-md-9">
+                                                        <input disabled value="<?php echo $row->CityId;?>" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Doğum Tarihi</label>
+                                                    <div class="col-md-9">
+                                                        <input disabled value="<?php echo $row->DateofBirth;?>" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Görev</label>
+                                                    <div class="col-md-9">
+                                                        <input disabled value="<?php echo $row->TaskId;?>" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Kayıt Kimliği</label>
+                                                    <div class="col-md-9">
+                                                        <input disabled value="<?php echo $row->RecorderId;?>" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Kayıt Tarihi</label>
+                                                    <div class="col-md-9">
+                                                        <input disabled value="<?php echo $row->DateofRecord;?>" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">İşlem</label>
+                                                    <div class="col-md-9">
+                                                        <input disabled value="<?php echo $row->IsAccept;?>" class="form-control">
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn green" data-dismiss="modal">Kapat</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- update -->
+                        <div class="modal fade draggable-modal" id="update" tabindex="-1" role="draggble" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                        <h4 class="modal-title"><?php echo $row->UserName;?> <?php echo $row->UserSurname;?></h4>
+                                    </div>
+                                    <div class="modal-body form">
+                                        <form action="#" id="form" class="form-horizontal">
+                                            <input type="hidden" value="" name="UserId"/>
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">TC No</label>
+                                                    <div class="col-md-9">
+                                                        <input name="UserTC" value="<?php echo $row->UserTC;?>" class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">İsim</label>
+                                                    <div class="col-md-9">
+                                                        <input name="UserName" value="<?php echo $row->UserName;?>" class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Soyisim</label>
+                                                    <div class="col-md-9">
+                                                        <input name="UserSurname" value="<?php echo $row->UserSurname;?>" class="form-control" type="text">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Email</label>
+                                                    <div class="col-md-9">
+                                                        <input name="Email" value="<?php echo $row->Email;?>" class="form-control" type="text">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Şifre</label>
+                                                    <div class="col-md-9">
+                                                        <input name="Password" value="" class="form-control" type="text">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Telefon</label>
+                                                    <div class="col-md-9">
+                                                        <input name="Telephone" value="<?php echo $row->Telephone;?>" class="form-control" type="text">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Cinsiyet</label>
+                                                    <div class="col-md-9">
+                                                        <input name="Gender" value="<?php echo $row->Gender;?>" class="form-control" type="text">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">İl</label>
+                                                    <div class="col-md-9">
+                                                        <input name="CityId" value="<?php echo $row->CityId;?>" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Doğum Tarihi</label>
+                                                    <div class="col-md-9">
+                                                        <input name="DateofBirth" value="<?php echo $row->DateofBirth;?>" class="form-control" type="text">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Görev</label>
+                                                    <div class="col-md-9">
+                                                        <input name="TaskId" value="<?php echo $row->TaskId;?>" class="form-control" type="text">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Kayıt Kimliği</label>
+                                                    <div class="col-md-9">
+                                                        <input name="RecorderId" value="<?php echo $row->RecorderId;?>"  class="form-control" type="text">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Kayıt Tarihi</label>
+                                                    <div class="col-md-9">
+                                                        <input name="DateofRecord" value="<?php echo $row->DateofRecord;?>" class="form-control" type="text">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">İşlem</label>
+                                                    <div class="col-md-9">
+                                                        <input name="" value="<?php echo $row->IsAccept;?>" class="form-control" type="text">
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal">Kaydet</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- delete -->
+                        <div class="modal fade draggable-modal" id="delete" tabindex="-1" role="basic" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                        <h4 class="modal-title">Bu kaydı silmek istediğinizden emin misiniz?</h4>
+                                    </div>
+
+                                    <div style="margin:30px;text-align:center;font-size:18px;"><?php echo $row->id; ?> numaralı <?php echo $row->UserName;?> <?php echo $row->UserSurname;?> öğesi silinecek</div>
+
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Hayır</button>
+                                        <a class="btn btn-success" href="<?php echo base_url("users/delete/$row->id"); ?>"><i class="glyphicon glyphicon-ok"></i> Evet</a>
+
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div></div>
+                <!-- insert -->
+                <div class="modal fade draggable-modal" id="insert" tabindex="-1" role="draggble" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                <h4 class="modal-title">Yeni Kayıt Ekle</h4>
+                            </div>
+                            <div class="modal-body form">
+                                <form action="#" id="form" class="form-horizontal">
+                                    <input type="hidden" value="" name="UserId"/>
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">TC No</label>
+                                            <div class="col-md-9">
+                                                <input name="UserTC" value="" class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">İsim</label>
+                                            <div class="col-md-9">
+                                                <input name="UserName" value="" class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Soyisim</label>
+                                            <div class="col-md-9">
+                                                <input name="UserSurname" value="" class="form-control" type="text">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Email</label>
+                                            <div class="col-md-9">
+                                                <input name="Email" value="" class="form-control" type="text">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Şifre</label>
+                                            <div class="col-md-9">
+                                                <input name="Password" value="" class="form-control" type="text">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Telefon</label>
+                                            <div class="col-md-9">
+                                                <input name="Telephone" value="" class="form-control" type="text">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Cinsiyet</label>
+                                            <div class="col-md-9">
+                                                <input name="Gender" value="" class="form-control" type="text">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">İl</label>
+                                            <div class="col-md-9">
+                                                <input name="CityId" value="" class="form-control">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Doğum Tarihi</label>
+                                            <div class="col-md-9">
+                                                <input name="DateofBirth" value="" class="form-control" type="text">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Görev</label>
+                                            <div class="col-md-9">
+                                                <input name="TaskId" value="" class="form-control" type="text">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Kayıt Kimliği</label>
+                                            <div class="col-md-9">
+                                                <input name="RecorderId" value=""  class="form-control" type="text">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Kayıt Tarihi</label>
+                                            <div class="col-md-9">
+                                                <input name="DateofRecord" value="" class="form-control" type="text">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">İşlem</label>
+                                            <div class="col-md-9">
+                                                <input name="" value="E" class="form-control" type="text">
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+                                <a href="<?php base_url("users/insert"); ?>" class="btn btn-success" data-dismiss="modal">Kaydet</a>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                        </div>
                         </div>
                 </div>
                 <!-- END EXAMPLE TABLE PORTLET-->
             </div>
-        </div>
-    </div>
+
+</div>
     <!-- END CONTENT BODY -->
 <!-- END CONTENT -->
+
+
+
+
 
 
 

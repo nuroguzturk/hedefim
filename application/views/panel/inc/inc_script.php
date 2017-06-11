@@ -62,6 +62,9 @@
 <script src="<?php echo base_url("assets"); ?>/global/scripts/datatable.js" type="text/javascript"></script>
 <script src="<?php echo base_url("assets"); ?>/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url("assets"); ?>/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
+<script src="<?php echo base_url("assets"); ?>/global/plugins/bootstrap-sweetalert/sweetalert.min.js" type="text/javascript"></script>
+
+
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN TABLO PAGE LEVEL SCRIPTS -->
 <script src="<?php echo base_url("assets"); ?>/pages/scripts/table-datatables-buttons.js" type="text/javascript"></script>
@@ -70,10 +73,11 @@
 
 
 
-<script src="<?php echo base_url("assets"); ?>/pages/scripts/ui-extended-modals.min.js" type="text/javascript"></script>
+
+<script src="<?php echo base_url("assets"); ?>/pages/scripts/ui-modals.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url("assets"); ?>/pages/scripts/ui-sweetalert.min.js" type="text/javascript"></script>
 
-
+<!--<script src="<?php echo base_url("assets"); ?>/pages/scripts/ui-extended-modals.min.js" type="text/javascript"></script>
 
 
 
