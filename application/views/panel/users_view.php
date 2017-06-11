@@ -221,15 +221,15 @@
                             <?php foreach($rows as $row){?>
                                 <tr>
 
-                                    <td>
+                                    <td style="width:10px;text-align: center;">
                                         <div>
-                                            <input type="checkbox" checked class="make-switch switch-small" data-label-icon="fa fa-fullscreen" data-on-text="<i class='fa fa-check'></i>" data-off-text="<i class='fa fa-times'></i>" data-on-color="success" data-off-color="default">
+                                            <input  type="checkbox" checked class="make-switch switch-small" data-label-icon="fa fa-fullscreen" data-on-text="<i class='fa fa-check'></i>" data-off-text="<i class='fa fa-times'></i>" data-on-color="success" data-off-color="default">
                                         </div>
                                     </td>
 
 
-                                    <td style="width:120px;text-align: center;"><img class="usersimage" src="<?php echo base_url('upload/users'); ?>/<?php echo $row->UserImage;?>"></td>
-                                    <td style=""><?php echo $row->UserName;?></td>
+                                    <td style="width:100px;text-align: center;"><img class="usersimage" src="<?php echo base_url('upload/users'); ?>/<?php echo $row->UserImage;?>"></td>
+                                    <td><?php echo $row->UserName;?></td>
                                     <td><?php echo $row->UserSurname;?></td>
                                     <td><?php echo $row->Email;?></td>
                                     <td><?php echo $row->Telephone;?></td>
@@ -475,7 +475,7 @@
                             <!-- /.modal-dialog -->
                         </div>
                 <!-- delete -->
-                        <div class="modal fade draggable-modal" id="delete" tabindex="-1" role="basic" aria-hidden="true">
+                        <div class="modal fade draggable-modal" id="delete" tabindex="-1" role="draggble" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
