@@ -41,28 +41,46 @@ class Users extends CI_Controller
     public function insertpage(){
 
 
-        $this->load->view("islem");
+        $this->load->view("panel/index");
 
     }
 
     public function insert(){
 
-        $isim = $this->input->post("isim");
-        $soyisim = $this->input->post("soyisim");
-        $telefon = $this->input->post("telefon");
+            $UserTC = $this->input->post("UserTC");
+            $UserName = $this->input->post("UserName");
+            $UserSurname = $this->input->post("UserSurname");
+            $Email = $this->input->post("Email");
+            $Password = $this->input->post("Password");
+            $Telephone = $this->input->post("Telephone");
+            $Gender = $this->input->post("Gender");
+            $CityId = $this->input->post("CityId");
+            $DateofBirth = $this->input->post("DateofBirth");
+            $TaskId = $this->input->post("TaskId");
+            $RecorderId = $this->input->post("RecorderId");
+            $DateofRecord = $this->input->post("DateofRecord");
+            $IsAccept = $this->input->post("IsAccept");
 
         $data = array(
-
-            "isim" => $isim,
-            "soyisim" => $soyisim,
-            "telefon" => $telefon
-
+            'UserTC' => $UserTC,
+            'UserName' => $UserName,
+            'UserSurname' => $UserSurname,
+            'Email' => $Email,
+            'Password' => $Password,
+            'Telephone' => $Telephone,
+            'Gender' => $Gender,
+            'CityId' => $CityId,
+            'DateofBirth' => $DateofBirth,
+            'TaskId' => $TaskId,
+            'RecorderId' => $RecorderId,
+            'DateofRecord' => $DateofRecord,
+            'IsAccept' => $IsAccept
         );
 
         $insert =  $this->db->insert("users", $data);
 
         if($insert){
-            redirect("welcome/index");
+            redirect("users/index");
         }else{
             echo "hata oluştu";
         }

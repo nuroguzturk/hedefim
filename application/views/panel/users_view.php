@@ -252,7 +252,7 @@
                             <?php }?>
                             </tbody>
                         </table>
-                        <!-- view -->
+                <!-- view -->
                         <div class="modal fade draggable-modal" id="view" tabindex="-1" role="draggble" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -352,14 +352,14 @@
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn green" data-dismiss="modal">Kapat</button>
+                                        <button type="button" class="btn red" data-dismiss="modal">Kapat</button>
                                     </div>
                                 </div>
                                 <!-- /.modal-content -->
                             </div>
                             <!-- /.modal-dialog -->
                         </div>
-                        <!-- update -->
+                <!-- update -->
                         <div class="modal fade draggable-modal" id="update" tabindex="-1" role="draggble" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -474,7 +474,7 @@
                             </div>
                             <!-- /.modal-dialog -->
                         </div>
-                        <!-- delete -->
+                <!-- delete -->
                         <div class="modal fade draggable-modal" id="delete" tabindex="-1" role="basic" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -505,32 +505,32 @@
                                 <h4 class="modal-title">Yeni Kayıt Ekle</h4>
                             </div>
                             <div class="modal-body form">
-                                <form action="#" id="form" class="form-horizontal">
-                                    <input type="hidden" value="" name="UserId"/>
+                                <form action="<?php base_url("users/insert"); ?>" class="form-horizontal" method="post">
+                                    <input type="hidden" name="UserId"/>
                                     <div class="form-body">
                                         <div class="form-group">
                                             <label class="control-label col-md-3">TC No</label>
                                             <div class="col-md-9">
-                                                <input name="UserTC" value="" class="form-control" type="text">
+                                                <input name="UserTC" class="form-control" type="text">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3">İsim</label>
                                             <div class="col-md-9">
-                                                <input name="UserName" value="" class="form-control" type="text">
+                                                <input name="UserName" class="form-control" type="text">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Soyisim</label>
                                             <div class="col-md-9">
-                                                <input name="UserSurname" value="" class="form-control" type="text">
+                                                <input name="UserSurname" class="form-control" type="text">
 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Email</label>
                                             <div class="col-md-9">
-                                                <input name="Email" value="" class="form-control" type="text">
+                                                <input name="Email" class="form-control" type="text">
 
                                             </div>
                                         </div>
@@ -538,7 +538,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Şifre</label>
                                             <div class="col-md-9">
-                                                <input name="Password" value="" class="form-control" type="text">
+                                                <input name="Password" class="form-control" type="text">
 
                                             </div>
                                         </div>
@@ -552,60 +552,60 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Cinsiyet</label>
                                             <div class="col-md-9">
-                                                <input name="Gender" value="" class="form-control" type="text">
+                                                <input name="Gender" class="form-control" type="text">
 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3">İl</label>
                                             <div class="col-md-9">
-                                                <input name="CityId" value="" class="form-control">
+                                                <input name="CityId" class="form-control">
 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Doğum Tarihi</label>
                                             <div class="col-md-9">
-                                                <input name="DateofBirth" value="" class="form-control" type="text">
+                                                <input name="DateofBirth" class="form-control" type="text">
 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Görev</label>
                                             <div class="col-md-9">
-                                                <input name="TaskId" value="" class="form-control" type="text">
+                                                <input name="TaskId" class="form-control" type="text">
 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Kayıt Kimliği</label>
                                             <div class="col-md-9">
-                                                <input name="RecorderId" value=""  class="form-control" type="text">
+                                                <input name="RecorderId" class="form-control" type="text">
 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Kayıt Tarihi</label>
                                             <div class="col-md-9">
-                                                <input name="DateofRecord" value="" class="form-control" type="text">
+                                                <input name="DateofRecord" class="form-control" type="text">
 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3">İşlem</label>
                                             <div class="col-md-9">
-                                                <input name="" value="E" class="form-control" type="text">
+                                                <input name="IsAccept" value="E" class="form-control" type="text">
 
                                             </div>
                                         </div>
 
                                     </div>
-                                </form>
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
-                                <a href="<?php base_url("users/insert"); ?>" class="btn btn-success" data-dismiss="modal">Kaydet</a>
-                            </div>
+                                <input type="submit" value="Kaydet" class="btn btn-success">
+                            </div></form>
                         </div>
                         <!-- /.modal-content -->
                     </div>
@@ -617,7 +617,7 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             </div>
 
-</div>
+
     <!-- END CONTENT BODY -->
 <!-- END CONTENT -->
 
