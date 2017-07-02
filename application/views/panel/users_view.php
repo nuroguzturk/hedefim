@@ -240,9 +240,12 @@
 
                                     <td style="width:120px;text-align: center;">
 
-                                        <a class="btn btn-info" data-toggle="modal" href="#view"><i class="glyphicon glyphicon-search"></i></a>
-                                        <a class="btn btn-warning" data-toggle="modal" href="#update"><i class="glyphicon glyphicon-pencil"></i></a>
-                                        <a class="btn btn-danger" data-toggle="modal" href="#delete"><i class="glyphicon glyphicon-remove"></i></a>
+                                        <a class="btn btn-info" data-toggle="modal" href="#view" 
+										  onclick="edit_view(<?php echo $row->id;?>)" data-id="<?php echo $row->id;?>"><i class="glyphicon glyphicon-search"></i></a>
+                                        <a class="btn btn-warning" data-toggle="modal" href="#update"
+										  onclick="edit_update(<?php echo $row->id;?>)" data-id="<?php echo $row->id;?>"><i class="glyphicon glyphicon-pencil"></i></a>
+                                        <a class="btn btn-danger" data-toggle="modal" href="#delete"
+										onclick="edit_delete(<?php echo $row->id;?>)"><i class="glyphicon glyphicon-remove"></i></a>
 
 
                                        </td>
@@ -252,41 +255,123 @@
                             <?php }?>
                             </tbody>
                         </table>
+						
+	<script type="text/javascript" >
+
+  $(document).ready( function () {
+        $('#sample_3').DataTable();
+    } );
+   var save_method;
+   var table;
+
+//bu kısım çalıştı :))
+   function edit_view(id)
+   {
+     save_method='update';
+     $.ajax({
+       url:"<?php echo base_url("index.php/Users/ajax_model_view"); ?>/"+id,
+       type:"POST",
+       dataType:"JSON",
+       data:{"id":id},
+
+       success:function(data)
+       {
+         alert(data.UserName);
+         $('[id="user-id"]').val(data.id);
+         $('[id="user-tc"]').val(data.UserTC);
+         $('[id="user-name"]').val(data.UserName);
+         $('[id="user-surname"]').val(data.UserSurname);
+         $('[id="user-email"]').val(data.Email);
+         $('[id="user-tel"]').val(data.Telephone);
+         $('[id="user-gender"]').val(data.Gender);
+         $('[id="user-city"]').val(data.CityName);
+         $('[id="birthdate"]').val(data.DateofBirth);
+         $('[id="record-date"]').val(data.DateofRecord);
+         $('[id="user-task"]').val(data.TaskName);
+         $('[id="recorder-id"]').val(data.RecorderId);
+         $('[id="user-İd"]').val(data.id);
+         $('[id="isaccept"]').val(data.IsAccept);
+         $('#view').modal('show');
+         //$('.modal-title').text('Edit book');
+       },
+       error: function (jqXHR, textStatus, errorThrown)
+        {
+            alert('Error get data from ajax');
+        }
+     });
+   }
+     function edit_update(id)
+   {
+     save_method='update';
+     $.ajax({
+       url:"<?php echo base_url("index.php/Users/ajax_model_view"); ?>/"+id,
+       type:"POST",
+       dataType:"JSON",
+       data:{"id":id},
+
+       success:function(data)
+       {
+         alert(data.UserName);
+         $('[id="user-id"]').val(data.id);
+         $('[id="user-tc"]').val(data.UserTC);
+         $('[id="user-name"]').val(data.UserName);
+         $('[id="user-surname"]').val(data.UserSurname);
+         $('[id="user-email"]').val(data.Email);
+         $('[id="user-tel"]').val(data.Telephone);
+         $('[id="user-gender"]').val(data.Gender);
+         $('[id="user-city"]').val(data.CityName);
+         $('[id="birthdate"]').val(data.DateofBirth);
+         $('[id="record-date"]').val(data.DateofRecord);
+         $('[id="user-task"]').val(data.TaskName);
+         $('[id="recorder-id"]').val(data.RecorderId);
+         $('[id="user-İd"]').val(data.id);
+         $('[id="isaccept"]').val(data.IsAccept);
+         $('#update').modal('show');
+         //$('.modal-title').text('Edit book');
+       },
+       error: function (jqXHR, textStatus, errorThrown)
+        {
+            alert('Error get data from ajax');
+        }
+     });
+   }
+
+  </script>
                 <!-- view -->
                         <div class="modal fade draggable-modal" id="view" tabindex="-1" role="draggble" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                        <h4 class="modal-title"><?php echo $row->UserName;?> <?php echo $row->UserSurname;?></h4>
+                                        <h4 class="modal-title"id="baslik_adsoyad"></h4>
                                     </div>
                                     <div class="modal-body form">
                                         <form action="#" id="form" class="form-horizontal">
-                                            <input type="hidden" value="" name="UserId"/>
+                                            <input type="hidden" value="" name="UserId" id="user-id"/>
                                             <div class="form-body">
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">TC No</label>
                                                     <div class="col-md-9">
-                                                        <input disabled value="<?php echo $row->UserTC;?>" class="form-control">
+                                                        <input disabled value="" id="user-tc" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">İsim</label>
                                                     <div class="col-md-9">
-                                                        <input disabled value="<?php echo $row->UserName;?>" class="form-control">
+                                                        <input disabled value="" id="user-name" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Soyisim</label>
                                                     <div class="col-md-9">
-                                                        <input disabled value="<?php echo $row->UserSurname;?>" class="form-control">
+                                                        <input disabled value="" id="user-surname" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Email</label>
                                                     <div class="col-md-9">
-                                                        <input disabled value="<?php echo $row->Email;?>" class="form-control">
+                                                        <input disabled value="" id="user-email" class="form-control">
 
                                                     </div>
                                                 </div>
@@ -294,56 +379,56 @@
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Telefon</label>
                                                     <div class="col-md-9">
-                                                        <input disabled value="<?php echo $row->Telephone;?>" class="form-control">
+                                                        <input disabled value="" id="user-tel" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Cinsiyet</label>
                                                     <div class="col-md-9">
-                                                        <input disabled value="<?php echo $row->Gender;?>" class="form-control">
+                                                        <input disabled value="" id="user-gender" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">İl</label>
                                                     <div class="col-md-9">
-                                                        <input disabled value="<?php echo $row->CityId;?>" class="form-control">
+                                                        <input disabled value="" id="user-city" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Doğum Tarihi</label>
                                                     <div class="col-md-9">
-                                                        <input disabled value="<?php echo $row->DateofBirth;?>" class="form-control">
+                                                        <input disabled value="" id="birthdate" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Görev</label>
                                                     <div class="col-md-9">
-                                                        <input disabled value="<?php echo $row->TaskId;?>" class="form-control">
+                                                        <input disabled value="" id="user-task" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Kayıt Kimliği</label>
                                                     <div class="col-md-9">
-                                                        <input disabled value="<?php echo $row->RecorderId;?>" class="form-control">
+                                                        <input disabled value="" id="recorder-id" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Kayıt Tarihi</label>
                                                     <div class="col-md-9">
-                                                        <input disabled value="<?php echo $row->DateofRecord;?>" class="form-control">
+                                                        <input disabled value=""id="record-date" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">İşlem</label>
                                                     <div class="col-md-9">
-                                                        <input disabled value="<?php echo $row->IsAccept;?>" class="form-control">
+                                                        <input disabled value="" id="isaccept" class="form-control">
 
                                                     </div>
                                                 </div>
@@ -365,99 +450,92 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                        <h4 class="modal-title"><?php echo $row->UserName;?> <?php echo $row->UserSurname;?></h4>
+                                        <h4 class="modal-title"id="baslik_adsoyad"></h4>
                                     </div>
                                     <div class="modal-body form">
                                         <form action="#" id="form" class="form-horizontal">
-                                            <input type="hidden" value="" name="UserId"/>
+                                            <input type="hidden" value="" name="UserId" id="user-id"/>
                                             <div class="form-body">
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">TC No</label>
                                                     <div class="col-md-9">
-                                                        <input name="UserTC" value="<?php echo $row->UserTC;?>" class="form-control" type="text">
+                                                        <input disabled value="" id="user-tc" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">İsim</label>
                                                     <div class="col-md-9">
-                                                        <input name="UserName" value="<?php echo $row->UserName;?>" class="form-control" type="text">
+                                                        <input disabled value="" id="user-name" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Soyisim</label>
                                                     <div class="col-md-9">
-                                                        <input name="UserSurname" value="<?php echo $row->UserSurname;?>" class="form-control" type="text">
+                                                        <input disabled value="" id="user-surname" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Email</label>
                                                     <div class="col-md-9">
-                                                        <input name="Email" value="<?php echo $row->Email;?>" class="form-control" type="text">
+                                                        <input disabled value="" id="user-email" class="form-control">
 
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3">Şifre</label>
-                                                    <div class="col-md-9">
-                                                        <input name="Password" value="" class="form-control" type="text">
-
-                                                    </div>
-                                                </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Telefon</label>
                                                     <div class="col-md-9">
-                                                        <input name="Telephone" value="<?php echo $row->Telephone;?>" class="form-control" type="text">
+                                                        <input disabled value="" id="user-tel" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Cinsiyet</label>
                                                     <div class="col-md-9">
-                                                        <input name="Gender" value="<?php echo $row->Gender;?>" class="form-control" type="text">
+                                                        <input disabled value="" id="user-gender" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">İl</label>
                                                     <div class="col-md-9">
-                                                        <input name="CityId" value="<?php echo $row->CityId;?>" class="form-control">
+                                                        <input disabled value="" id="user-city" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Doğum Tarihi</label>
                                                     <div class="col-md-9">
-                                                        <input name="DateofBirth" value="<?php echo $row->DateofBirth;?>" class="form-control" type="text">
+                                                        <input disabled value="" id="birthdate" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Görev</label>
                                                     <div class="col-md-9">
-                                                        <input name="TaskId" value="<?php echo $row->TaskId;?>" class="form-control" type="text">
+                                                        <input disabled value="" id="user-task" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Kayıt Kimliği</label>
                                                     <div class="col-md-9">
-                                                        <input name="RecorderId" value="<?php echo $row->RecorderId;?>"  class="form-control" type="text">
+                                                        <input disabled value="" id="recorder-id" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Kayıt Tarihi</label>
                                                     <div class="col-md-9">
-                                                        <input name="DateofRecord" value="<?php echo $row->DateofRecord;?>" class="form-control" type="text">
+                                                        <input disabled value=""id="record-date" class="form-control">
 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">İşlem</label>
                                                     <div class="col-md-9">
-                                                        <input name="" value="<?php echo $row->IsAccept;?>" class="form-control" type="text">
+                                                        <input disabled value="" id="isaccept" class="form-control">
 
                                                     </div>
                                                 </div>

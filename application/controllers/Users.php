@@ -147,6 +147,15 @@ class Users extends CI_Controller
         $this->load->view("user_view", $viewData);
 
     }
+	
+	//bu kısım ajax-modal crud işlemleri için kullanılan kodlar
+	public function ajax_model_view($id)
+    {
+        $data=$this->user_model->ajax_modal_view_id($id);
+        echo json_encode($data);
+    }
+	
+	//ajax-modal sonu
 
 }
 

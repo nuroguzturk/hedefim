@@ -114,6 +114,19 @@ class user_model extends CI_Model{
 
     }
 
-
+    //bu kısım ajax-modal crud işlemleri için kullanılan kodlar
+	
+	//bu fonksiyon gelen id degerine göre verileri modelden alıp modal da  gösterecek 
+	 public function ajax_modal_view_id($id)
+   {
+       $this->db->from('users');
+       $this->db->join('tasks','tasks.TaskId=users.TaskId','left');
+       $this->db->join('cities','cities.CityId=users.CityId','left');
+       $this->db->where('id',$id);
+       $query=$this->db->get();
+       return $query->row();
+   }
+	
+	//ajax-modal sonu
 
 }
